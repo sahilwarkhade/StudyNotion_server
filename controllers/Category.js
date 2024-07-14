@@ -31,8 +31,8 @@ exports.createCategory = async (req, res) => {
 
 exports.showAllCategories = async (req, res) => {
 	try {
-        console.log("INSIDE SHOW ALL CATEGORIES");
-		const allCategorys = await Category.find({});
+    console.log("INSIDE SHOW ALL CATEGORIES");
+		const allCategorys = await Category.find({});//Gives all entries that are entered in DB 
 		res.status(200).json({
 			success: true,
 			data: allCategorys,
@@ -79,7 +79,7 @@ exports.categoryPageDetails = async (req, res) => {
   
       // Get courses for other categories
       const categoriesExceptSelected = await Category.find({
-        _id: { $ne: categoryId },
+        _id: { $ne: categoryId },//ne= not equal and eq = equal
       })
       let differentCategory = await Category.findOne(
         categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]

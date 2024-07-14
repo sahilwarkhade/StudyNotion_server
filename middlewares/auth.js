@@ -54,6 +54,7 @@ exports.isStudent = async (req, res, next) => {
 		}
 		next();
 	} catch (error) {
+		console.log("ERROR IN AUTH:::",error);
 		return res
 			.status(500)
 			.json({ success: false, message: `User Role Can't be Verified` });
@@ -91,6 +92,7 @@ exports.isInstructor = async (req, res, next) => {
 		}
 		next();
 	} catch (error) {
+		console.log("ERROR IN INSTRUCTOR AUTH:::",error);
 		return res
 			.status(500)
 			.json({ success: false, message: `User Role Can't be Verified` });
